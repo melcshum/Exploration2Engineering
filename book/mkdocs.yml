@@ -33,6 +33,7 @@ theme:
 nav:
   - Home: index.md
   - Ch1: ch1-ai-supported-software.md
+  - Ch7: ch7-context-engineering.md
 
 markdown_extensions:
   - pymdownx.highlight:
