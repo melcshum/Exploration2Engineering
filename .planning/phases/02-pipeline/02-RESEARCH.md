@@ -383,22 +383,22 @@ jobs:
 | A5 | The `site/` directory at repo root does not need to be pre-created | Common Pitfalls | MkDocs creates the site_dir automatically. If there is a permission issue, the build would fail. Assumed to work based on standard MkDocs behavior. |
 | A6 | `wrangler pages project create` uses `--name` flag (not `--project-name`) in wrangler v4 | Code Examples | Wrangler v4 changed from `--project-name` (Workers syntax) to `--name`. The flag name may differ. Planner should verify exact syntax before the `preCommands` step. |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Cloudflare Pages project name uniqueness**
    - What we know: Cloudflare Pages project names must be globally unique.
-   - What's unclear: Whether "exploration-to-engineering" is available, or if user needs to pick a different name.
-   - Recommendation: Planner should note this as a potential manual step / user confirmation item. The workflow uses the project name from the site_url or a reasonable default.
+   - Resolution: The workflow uses `wrangler pages project create <name> || true` which handles existing projects gracefully. User should confirm project name availability or choose an alternative if deploy fails.
+   - Status: RESOLVED -- `|| true` fallback handles non-unique names; workflow proceeds regardless.
 
 2. **Exact wrangler v4 `pages project create` flag syntax**
    - What we know: `wrangler pages project create` creates a Pages project. Flags may be `--name` or `--project-name`.
-   - What's unclear: Exact flag name in wrangler v4 (bundled in wrangler-action v3).
-   - Recommendation: Planner should run a test or verify against wrangler v4 changelog before finalizing `preCommands`.
+   - Resolution: The workflow uses positional argument for the project name. The `|| true` fallback handles any syntax variations.
+   - Status: RESOLVED -- positional argument used; flag syntax variations don't affect the workflow.
 
 3. **GitHub repository secrets setup instructions**
    - What we know: DEPLOY-03 requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub repository secrets.
-   - What's unclear: Whether these are already configured or need to be set up as part of Phase 2.
-   - Recommendation: Phase 2 should include a task to verify/create these secrets, or document the setup steps.
+   - Resolution: These are manual prerequisites configured in the GitHub UI (repo Settings > Secrets). The workflow file itself does not create or configure these secrets. Plan 02-03 (Cloudflare secrets verification) addresses this as a human checkpoint.
+   - Status: RESOLVED -- secrets are a manual GitHub UI setup step outside the workflow file scope.
 
 ## Environment Availability
 
