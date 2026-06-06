@@ -36,5 +36,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           preCommands: |
-            wrangler pages project create exploration-to-engineering || true
-          command: pages deploy site --project-name=exploration-to-engineering --branch main
+            wrangler pages project create exploration-to-engineering --production-branch main || true
+          command: pages deploy site --project-name=exploration-to-engineering
