@@ -25,7 +25,7 @@
       }
     },
     {
-      "id": "arrow1",
+      "id": "a1",
       "type": "arrow",
       "x": 200,
       "y": 235,
@@ -58,7 +58,7 @@
       }
     },
     {
-      "id": "arrow2",
+      "id": "a2",
       "type": "arrow",
       "x": 400,
       "y": 235,
@@ -91,7 +91,7 @@
       }
     },
     {
-      "id": "arrow3",
+      "id": "a3",
       "type": "arrow",
       "x": 600,
       "y": 235,
@@ -104,7 +104,7 @@
     },
     {
       "id": "solved",
-      "type": "rectangle",
+      "type": "diamond",
       "x": 660,
       "y": 200,
       "width": 120,
@@ -113,7 +113,6 @@
       "backgroundColor": "#fce4ec",
       "strokeColor": "#c2185b",
       "strokeWidth": 2,
-      "roundness": { "basic": 6, "edit": 6 },
       "label": {
         "text": "Solved?",
         "color": "#c2185b",
@@ -153,7 +152,7 @@
       "id": "no-label",
       "type": "text",
       "x": 730,
-      "y": 300,
+      "y": 295,
       "width": 30,
       "height": 30,
       "strokeColor": "transparent",
