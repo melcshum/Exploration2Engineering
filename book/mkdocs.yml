@@ -30,11 +30,6 @@ theme:
 nav:
   - Home: index.md
   - Ch1: ch1-ai-supported-software.md
-  - Ch2: ch2-agentic-workflows.md
-  - Ch3: ch3-model-integration.md
-  - Ch4: ch4-ai-driven-development.md
-  - Ch5: ch5-production-guardrails.md
-  - Ch6: ch6-conclusion.md
 
 markdown_extensions:
   - pymdownx.highlight:

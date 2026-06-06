@@ -27,8 +27,8 @@ You do not need to be an AI researcher. You need to be a software engineer who k
 
 | Chapter | Topic | Status |
 |---------|-------|--------|
-| Ch1 | AI-Supported Software Development | ✅ Complete |
-| Ch2 | Agentic Workflows | 🔄 In Progress |
+| Ch1 | AI-Supported Software Development | 🔄 In Progress |
+| Ch2 | Agentic Workflows | 📋 Pending |
 | Ch3 | Model Integration & Context | 📋 Pending |
 | Ch4 | AI-Driven Development | 📋 Pending |
 | Ch5 | Production & Guardrails | 📋 Pending |
