@@ -54,7 +54,10 @@ Plans:
 4. Draft documents are excluded from production build
 5. Navigation shows all published chapters without broken links
 6. `book/build.sh` generates a working EPUB export
-**Plans:** TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 03-01-PLAN.md — mkdocs.yml configuration (repo_url, edit_uri, draft_docs, nav)
+- [ ] 03-02-PLAN.md — EPUB build script update (book/build.sh)
 
 ### Phase 4: Ch2
 **Goal:** Chapter 2 drafted in tutorial format covering LLM integration patterns
@@ -74,5 +77,5 @@ Plans:
 |-------|---------------|--------|-----------|
 | 1. Foundation | 0/5 | Not started | - |
 | 2. Pipeline | 0/5 | Not started | - |
-| 3. Polish | 0/6 | Not started | - |
+| 3. Polish | 0/2 | Not started | - |
 | 4. Ch2 | 0/3 | Not started | - |
