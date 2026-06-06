@@ -21,7 +21,11 @@
 3. All code examples are executable Python snippets embedded in chapter markdown
 4. `mkdocs build --strict` succeeds locally with no warnings or errors
 5. `mkdocs serve` runs for live preview during development
-**Plans:** TBD
+**Plans:** 3 plans
+Plans:
+- [ ] 01-01-PLAN.md — Create .python-version, delete stale chapter file
+- [ ] 01-02-PLAN.md — Update mkdocs.yml configuration, validate build and serve
+- [ ] 01-03-PLAN.md — Review and validate Ch1 content for tutorial format and production-readiness
 
 ### Phase 2: Pipeline
 **Goal:** CI/CD pipeline automates build and deploy to Cloudflare Pages
@@ -33,7 +37,11 @@
 3. `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are configured as GitHub repository secrets
 4. Build command is `mkdocs build --strict` with output directory `site/`
 5. Python version is pinned via `.python-version` to prevent silent breakage
-**Plans:** TBD
+**Plans:** 3 plans
+Plans:
+- [x] 02-01-PLAN.md — GitHub Actions workflow (deploy.yml) for CI/CD
+- [x] 02-02-PLAN.md — mkdocs.yml site_dir config + .gitignore updates
+- [x] 02-03-PLAN.md — Cloudflare secrets verification (human checkpoint)
 
 ### Phase 3: Polish
 **Goal:** Site is production-ready and publicly accessible; EPUB export functional
