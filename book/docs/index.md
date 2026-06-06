@@ -2,18 +2,12 @@
 
 ## Designing AI-Supported Software with LLMs, RAG, and Agentic Workflows
 
-<!-- Hero Section -->
-<div align="center" style="padding: 2.5rem 1rem 2rem;">
+!!! abstract "A Practical Guide for Developers"
+    This book is for developers who want to move beyond AI experiments and ship real, production-ready AI-supported software.
 
-### A Practical Guide for Developers
+    **6 chapters** · **Intermediate developers** · **Hands-on coding labs**
 
-This book is for developers who want to move beyond AI experiments and ship real, production-ready AI-supported software.
-
-**6 chapters** · **Intermediate developers** · **Hands-on coding labs**
-
-[![Start Reading](ch1-ai-supported-software.md){: style="display:inline-block; background:#3f51b5; color:white; padding:0.75rem 1.75rem; border-radius:4px; text-decoration:none; font-weight:600; margin-top:1rem;"} Start Reading →](#)
-
-</div>
+    [Start Reading :fontawesome-solid-arrow-right:](./ch1-ai-supported-software.md){: .md-button .md-button--primary }
 
 ---
 
