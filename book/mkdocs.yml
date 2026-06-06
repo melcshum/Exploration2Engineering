@@ -1,0 +1,60 @@
+site_name: From Exploration to Engineering
+site_description: Designing AI-Supported Software with LLMs, RAG, and Agentic Workflows
+site_url: https://yourusername.github.io/exploration-to-engineering
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.tracking
+    - content.code.copy
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - Ch1: ch1-ai-supported-software.md
+  - Ch2: ch2-agentic-workflows.md
+  - Ch3: ch3-model-integration.md
+  - Ch4: ch4-ai-driven-development.md
+  - Ch5: ch5-production-guardrails.md
+  - Ch6: ch6-conclusion.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - footnotes
+
+extra:
+  homepage: https://github.com/yourusername/exploration-to-engineering
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/exploration-to-engineering
+
+plugins:
+  - search:
+      lang:
+        - en
