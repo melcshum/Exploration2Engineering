@@ -2,6 +2,7 @@ site_name: From Exploration to Engineering
 site_description: Designing AI-Supported Software with LLMs, RAG, and Agentic Workflows
 site_url: https://yourusername.github.io/exploration-to-engineering
 docs_dir: docs
+site_dir: ../site
 
 theme:
   name: material
