@@ -2,13 +2,15 @@
 
 ## Scope
 
-This chapter lays the conceptual foundation for the entire book. It covers three big ideas:
+This chapter lays the conceptual foundation for the entire book. It covers five big ideas:
 
 1. **How LLMs work** — next-token prediction, the Transformer architecture, and why hallucination happens.
 2. **The separation of compute and context** — why grounding responses in external knowledge is the key engineering discipline.
-3. **From exploration to engineering** — how informal prompt experiments become formal software systems with testable, maintainable behaviour.
+3. **LLM limitations** — knowledge cutoff, context window limits, and why those failures matter for system design.
+4. **RAG architecture and limitations** — chunking, embedding, retrieval, and why RAG does not fix hallucination.
+5. **From exploration to engineering** — how informal prompt experiments become formal software systems with testable, maintainable behaviour.
 
-This chapter does not go deep on RAG implementation (that's Chapter 3), agentic orchestration (that's Chapter 2), or production deployment (that's Chapter 5). It establishes the mental models those chapters build on.
+This chapter establishes the mental models that Chapters 2, 7, 8, and 9 build on. It does not go deep on agentic orchestration (Chapter 2), context engineering (Chapter 7), or production deployment (Chapter 5).
 
 ---
 
@@ -56,6 +58,62 @@ The notes also identify several advanced strategies that make AI systems more re
 - **Agentic workflows** coordinate multiple reasoning steps or specialised agents.
 
 Agentic design patterns include single-agent systems, sequential agents, parallel agents, review-and-critique agents, routing agents, and agent-as-a-tool designs. These patterns become useful when the application requires more than simple question answering. For example, one agent may retrieve documentation, another may generate code, and another may critique the solution before it is accepted.
+
+---
+
+## Limitations of LLMs
+
+Before designing an AI-supported system, you must understand what LLMs cannot do — and why. Three core limitations shape every architecture decision you will make.
+
+### Knowledge Cutoff
+
+An LLM's knowledge is frozen at training time. Ask it about events after its cutoff date, and it will guess or say it does not know. This is not a bug — it is a fundamental property of how language models work. The model cannot update its weights from reading new documents at inference time.
+
+**Engineering implication:** If your application requires up-to-date information, you cannot rely on the model's knowledge. You must retrieve current information at runtime and inject it into the prompt. This is the core motivation for RAG.
+
+### Hallucination
+
+When an LLM does not have enough context to answer accurately, it does not say "I don't know." It generates a plausible-sounding response. This is **hallucination** — the model confabulates facts it has never seen because it is optimised to produce fluent text, not truthful text.
+
+Hallucination is most likely when:
+- The question is outside the model's training data
+- The question is after the model's knowledge cutoff
+- The question is ambiguous and the model picks a random interpretation
+- The prompt provides contradictory context
+
+**Engineering implication:** You cannot build a reliable AI system by trusting the model's outputs. You must design guardrails that detect low-confidence responses, surface uncertainty to users, and escalate to human review when the stakes are high.
+
+### Context Window Limits
+
+Every LLM has a maximum number of tokens it can process in a single inference call. Context windows range from 4,096 tokens (small models) to 200,000+ tokens (large models). When the context window is exhausted, the model begins forgetting earlier context — or cannot accept more input.
+
+**Engineering implication:** You cannot simply dump an entire knowledge base into every prompt. You must select, rank, and compress the context most relevant to the current query. This is context engineering (Chapter 7) — the discipline that makes RAG work in practice.
+
+---
+
+## RAG Limitations
+
+RAG solves the knowledge cutoff problem, but introduces its own limitations. Understanding them is part of knowing when to use RAG — and when a simpler approach is better.
+
+### Retrieval Quality Depends on Chunking
+
+The quality of a RAG system is only as good as its chunks. If chunks are too large, they dilute the signal with irrelevant context. If chunks are too small, they lose the information needed to answer the query. There is no universally correct chunk size — it depends on the content type and query patterns.
+
+### Embeddings Capture Meaning, Not Exact Matches
+
+Semantic search finds conceptually related chunks, but misses exact matches of specific terms, codes, or identifiers. A question about "RFC 7231 Section 6.4.1" will not retrieve well semantically unless those exact terms appear in the chunk. For precise lookups, keyword search is still needed.
+
+### RAG Does Not Fix Hallucination
+
+RAG grounds the model's response in retrieved context, but it does not eliminate hallucination. If retrieved chunks are wrong, irrelevant, or contradictory, the model still generates a plausible-but-wrong response. Guardrails and evaluation are still required.
+
+### Latency and Cost
+
+Every RAG retrieval adds latency and cost: embedding the query, searching the vector store, reranking, and building the prompt. For high-volume or latency-sensitive applications, this overhead matters.
+
+### Cold Start
+
+A new document corpus has no retrieval history. You do not know which chunks answer which questions until users ask them. Early retrieval quality is often poor — improving it requires collecting query-retrieval pairs over time and tuning chunking and embedding strategies accordingly.
 
 ---
 
