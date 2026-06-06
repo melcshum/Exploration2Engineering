@@ -27,6 +27,7 @@ theme:
     - content.code.copy
     - content.code.annotate
     - content.code.mermaid
+    - content.code.excalidraw
     - search.highlight
     - search.suggest
 

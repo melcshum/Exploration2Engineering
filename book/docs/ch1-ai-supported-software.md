@@ -42,13 +42,8 @@ This separation leads directly to **Retrieval-Augmented Generation**, or **RAG**
 
 The loop of human problem solving — Thought → Action → Observation → (Solved?) → Loop back — mirrors how AI agents work.
 
-```mermaid
-flowchart LR
-    T[Thought] --> A[Action]
-    A --> O[Observation]
-    O --> Q{Solved?}
-    Q -->|Yes| D[Done]
-    Q -->|No| T
+```excalidraw
+./assets/excalidraw/ch1-human-problem-solving-loop.excalidraw
 ```
 
 The agent thinks (predicts the next token), acts (calls a tool), observes (reads the result), and loops until the task is done.
