@@ -34,6 +34,7 @@ nav:
   - Home: index.md
   - Ch1: ch1-ai-supported-software.md
   - Ch7: ch7-context-engineering.md
+  - Ch8: ch8-agentic-design-patterns.md
 
 markdown_extensions:
   - pymdownx.highlight:
