@@ -40,6 +40,19 @@ A key engineering principle is therefore the **separation of compute and context
 
 This separation leads directly to **Retrieval-Augmented Generation**, or **RAG**. Instead of retraining the model whenever knowledge changes, a RAG system retrieves relevant information from an external knowledge base and inserts that information into the prompt. The model then generates an answer grounded in the retrieved context.
 
+The loop of human problem solving — Thought → Action → Observation → (Solved?) → Loop back — mirrors how AI agents work.
+
+```mermaid
+flowchart LR
+    T[Thought] --> A[Action]
+    A --> O[Observation]
+    O --> Q{Solved?}
+    Q -->|Yes| D[Done]
+    Q -->|No| T
+```
+
+The agent thinks (predicts the next token), acts (calls a tool), observes (reads the result), and loops until the task is done.
+
 In a professional software system, this means that knowledge can be updated independently of the model. A company policy document, course handbook, or programming guide can be changed, re-indexed, and made available to the AI system without requiring the LLM itself to be retrained.
 
 RAG normally includes two major workflows:
