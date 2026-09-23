@@ -1,6 +1,8 @@
 site_name: From Exploration to Engineering
 site_description: Designing AI-Supported Software with LLMs, RAG, and Agentic Workflows
 site_url: https://yourusername.github.io/exploration-to-engineering
+repo_url: https://github.com/yourusername/exploration-to-engineering
+edit_uri: blob/main/book/docs
 docs_dir: docs
 site_dir: ../site
 
@@ -24,6 +26,7 @@ theme:
     - navigation.tabs
     - navigation.instant
     - navigation.tracking
+    - navigation.edit.page
     - content.code.copy
     - content.code.annotate
     - content.code.mermaid
@@ -34,9 +37,9 @@ theme:
 nav:
   - Home: index.md
   - Ch1: ch1-ai-supported-software.md
-  - Ch7: ch7-context-engineering.md
-  - Ch8: ch8-agentic-design-patterns.md
-  - Ch9: ch9-what-is-agentic-design-pattern.md
+  - Ch2: ch2-plan-and-execute.md
+  - Ch3: ch3-model-integration.md
+  - Ch4: ch4-ai-driven-development.md
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -66,3 +69,8 @@ plugins:
       lang:
         - en
   - excalidraw
+
+draft_docs: |
+  ch7-*
+  ch8-*
+  ch9-*

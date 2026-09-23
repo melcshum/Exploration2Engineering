@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-last_updated: "2026-06-06T08:45:00.000Z"
+last_updated: "2026-06-06T13:05:00.000Z"
 progress:
   total_phases: 4
-  completed_phases: 1
-  total_plans: 6
-  completed_plans: 3
+  completed_phases: 3
+  total_plans: 10
+  completed_plans: 5
   percent: 100
 ---
 
@@ -17,15 +17,24 @@ progress:
 ## Project Reference
 
 **Core Value:** Students who finish this book can confidently build and deploy AI-supported applications using modern LLM, RAG, and agentic workflows — ready for internships or entry-level roles.
-**Current Focus:** Phase 2: Pipeline (GitHub Actions CI/CD + Cloudflare Pages)
+**Current Focus:** Phase 4: Ch2 Draft + Curriculum Outline
 
 ## Current Position
 
 **Milestone:** v1
-**Phase:** 2 (Pipeline)
-**Plan:** 02-01, 02-02, 02-03 (3 plans)
-**Status:** Ready to execute
-**Progress:** [██████████] 100% (Phase 1 complete; Phase 2 planned)
+**Phase:** 3 (Polish) — COMPLETE
+**Phase:** 4 (Ch2) — In Progress (Ch2 drafted, ch3 stubbed)
+**Progress:** [██████████] Phase 1 ✓ Phase 2 ✓ Phase 3 ✓ Phase 4 🔄
+
+## Completed This Session
+
+- `ch2-plan-and-execute.md` — full textbook chapter written (Lead-In, 4 topics, 2 Excalidraw specs, worked transformation, Lead-Out, 5 review Qs, conceptual lab, diagramming exercise)
+- `ch3-model-integration.md` — stub created to satisfy nav/build link requirements
+- `mkdocs.yml` — nav updated (Ch1 + Ch2 + Ch3)
+- `index.md` — book structure table updated (Ch1 → ✅ Complete, Ch2 → 🔄 In Progress)
+- `book/build.sh` — ch2 + ch3 added to EPUB inputs; CSS path fixed to `$BOOK_DIR/docs/assets/epub.css`
+- `mkdocs build --strict` → exits 0
+- `bash book/build.sh` → EPUB built successfully
 
 ## Performance Metrics
 
@@ -54,8 +63,11 @@ progress:
 - BUILD-02 (EPUB export) belongs to Phase 3 — after deployment pipeline is verified
 - SITE-01 (live URL) belongs to Phase 3 — requires Phase 2 pipeline to produce it
 - CONTENT-04/05 (Ch2/3+) assigned to Phase 4 — after site is production-ready
+- Pandoc CSS path in build.sh must be relative to CWD (book/), not relative to EPUB output — `docs/assets/epub.css` not `assets/epub.css`
+- Material for MkDocs `navigation.edit.page` enables edit links but they may not render in 9.7.x without additional config; SITE-03 has a gap here
 
 ## Session Continuity
 
 - 2026-06-06T08:01: Phase 1 planning started
 - 2026-06-06T08:45: Phase 1 execution completed, Phase 2 planned
+- 2026-06-06T12:30: Phase 3 (Polish) plans reviewed via plan-eng-review; 03-01 + 03-02 executed
